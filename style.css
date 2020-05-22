@@ -1,0 +1,236 @@
+body {
+  background-image: repeating-linear-gradient(transparent,transparent 7px,#ccc 7px, #ccc 8px), repeating-linear-gradient(to right,transparent,transparent 7px,#ccc 7px,#ccc 8px);
+}
+
+* {
+  cursor: auto !important;
+}
+
+/* header */
+#header {
+  background: none;
+  border-color: darkgreen;
+  border-bottom-width: 2px;
+}
+
+#sr-header-area .redesign-beta-optin {
+  background: green;
+}
+
+/* yes, using ::before for a pseudo-element that's positioned like an ::after element is a great idea, reddit! */
+#sr-header-area .redesign-beta-optin::before {
+  background: darkgreen;
+}
+
+#header-img.default-header {
+  background-image: url(%%000%%);
+  background-position: initial;
+  animation: header-animation 10s forwards;
+}
+
+/* preload images */
+/* yes, i know this sucks, but it's not like this entire site sucks or anything */
+/* we can safely do this, since reddit was programmed in 1990 (at least it looks like it) and pseudo elements didn't even exist back then */
+
+#header::before{content:'';width:0;height:0;background-image:url(%%005%%)}
+#header::after{content:'';width:0;height:0;background-image:url(%%004%%)}
+#header-img.default-header::before{content:'';width:0;height:0;background-image:url(%%003%%)}
+#header-img.default-header::after{content:'';width:0;height:0;background-image:url(%%002%%)}
+#header-bottom-left::before{content:'';width:0;height:0;background-image:url(%%001%%)}
+#header-bottom-left::after{content:'';width:0;height:0;background-image:url(%%000%%)}
+
+/* end preload images */
+
+@keyframes header-animation {
+  0% {
+    background-image: url(%%007%%);
+  }
+  10% {
+    background-image: url(%%006%%);
+  }
+  20% {
+    background-image: url(%%005%%);
+  }
+  30% {
+    background-image: url(%%004%%);
+  }
+  40% {
+    background-image: url(%%003%%);
+  }
+  50% {
+    background-image: url(%%002%%);
+  }
+  60% {
+    background-image: url(%%001%%);
+  }
+  90% {
+    background-image: url(%%000%%);
+  }
+}
+
+.pagename a {
+  color: darkgreen;
+  font-size: 2rem;
+  font-variant: initial;
+  text-decoration: none !important;
+}
+
+.tabmenu li a {
+  border-color: darkgreen;
+  background-color: #cec;
+  color: darkgreen !important;
+  border-width: 2px !important;
+}
+
+.tabmenu li.selected a {
+  border-color: darkgreen;
+  border-bottom-color: #cec;
+  background-color: #cec;
+}
+
+#header-bottom-right {
+  background: #cec;
+}
+
+#header-bottom-right a {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+/* posts */
+#siteTable.sitetable {
+  background: #fff;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100vw - 320px);
+  box-sizing: border-box;
+}
+
+.sitetable .thing {
+  position: relative;
+  padding: 15px;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  z-index: 0;
+}
+
+.sitetable .thing:hover {
+  background-color: #f0faf0;
+}
+
+.sitetable .thing .thumbnail {
+  overflow: visible;
+  z-index: -1;
+  margin-right: 1rem;
+}
+
+.sitetable .thing .thumbnail img {
+  box-shadow: 10px 10px 5px gray;
+  border: 1px solid gray;
+}
+
+.sitetable .thing .title {
+  color: darkorange;
+  font-size: 19.2px;
+  text-shadow: 1px 1px 1px gray;
+}
+
+.sitetable .thing .top-matter .tagline, .sitetable .thing .top-matter .flat-list.buttons a {
+  font-size: 16px;
+  color: darkgreen;
+}
+
+/* side */
+
+.side {
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  /* thanks to the people at reddit for using float: right, love you guys */
+  margin-top: 7px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.side .spacer:first-of-type {
+  margin-top: 0;
+}
+
+#search input[type="text"] {
+  width: 276px;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  color: darkgreen;
+}
+
+.infobar {
+  background: #cec;
+  border: 2px solid darkgreen;
+  border-radius: 5px;
+  color: darkgreen;
+}
+
+.infobar a {
+  color: darkgreen;
+  font-weight: bold;
+}
+
+.premium-banner-outer {
+  position: relative;
+  pointer-events: none !important;
+}
+
+.premium-banner-outer * {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.premium-banner-outer::after {
+  content: 'Jetzt neu! holen Sie sich jetzt GCM Premium für nur 9,99€ im monat! nur so lange der vorrat reicht! genießen sie tolle exklusive Nachteile!';
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  align-items: center;
+  text-align: center;
+  background: darkgreen;
+  border: 6px double darkgreen;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 1rem;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  z-index: 999;
+}
+
+#eu-cookie-policy p::before {
+  content: 'moin, wir sind reddit und wir verwenden cookies um dich auszuspionieren, und jetzt nerven wir dich auch noch damit!';
+  color: darkgreen;
+  font-size: 12px;
+}
+
+#eu-cookie-policy p {
+  font-size: 0;
+}
+
+#eu-cookie-policy p a::before {
+  content: ' ich hab kein leben';
+  color: darkblue;
+  font-size: 12px;
+}
+
+#eu-cookie-policy .infobar-btn-container button::before {
+  content: 'aber gerne doch';
+  font-size: 12px;
+}
+
+#eu-cookie-policy .infobar-btn-container button {
+  font-size: 0;
+}
+
+
+#eu-cookie-policy .cookie-infobar {
+  padding-right: 10rem;
+}
